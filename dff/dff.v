@@ -1,5 +1,5 @@
 /* D Flip Flop */
-module dff(
+module DFF(
     // Input signals
     clk,
     rst_n,
