@@ -15,32 +15,56 @@ output reg D;
 
 input Q;
 
-// parameter CYCLE_DELAY = 100;
-// real CYCLE = `CYCLE_TIME;
-// always #(CYCLE / 2.0) clk = ~clk;
-
-/* clock generation */
-initial begin
-    rst_n = 1;
-    clk = 0;
-    forever #100 clk = ~clk;
-end
+real CYCLE = `CYCLE_TIME;
+always #(CYCLE / 2.0) clk = ~clk;
 
 initial begin
-	D = 0;
-	forever #200 D = ~D;
-end
+    rst_n = 1'b1;
+    force clk = 1'b0;
+    reset_task;
 
-/* generate data dump */
-initial begin
-    #5000 rst_n = 1'b1;
-    #500 rst_n = 1'b0;
-    #5000 rst_n = 1'b1;
+    repeat(100) begin
+        input_data;
+        if(!(rst_n == 0 && Q == 0)) display_fail;
+    end
+
+    display_pass;
     $finish;
 end
 
+task reset_task; begin
+    #(0.5) rst_n = 0;
+	#(3)   rst_n = 1;
+    #(3)   release clk;
+end endtask
+
+task input_data; begin
+    D = $random; rst_n = $random;
+    #5;
+end endtask
+
 initial begin
-    $monitor("IN = %d   OUT = %d   RST = %d \n", D, Q, rst_n);
+    $monitor("D = %d, Q = %d, rst_n = %d", D, Q, rst_n);
 end
+
+task display_pass; begin
+        $display("        ----------------------------               ");
+        $display("        --                        --       |\__||  ");
+        $display("        --  Congratulations !!    --      / O.O  | ");
+        $display("        --                        --    /_____   | ");
+        $display("        --  \033[0;32mSimulation PASS!!\033[m     --   /^ ^ ^ \\  |");
+        $display("        --                        --  |^ ^ ^ ^ |w| ");
+        $display("        ----------------------------   \\m___m__|_|");
+end endtask
+
+task display_fail; begin
+        $display("        ----------------------------               ");
+        $display("        --                        --       |\__||  ");
+        $display("        --  OOPS!!                --      / X,X  | ");
+        $display("        --                        --    /_____   | ");
+        $display("        --  \033[0;31mSimulation FAIL!!\033[m   --   /^ ^ ^ \\  |");
+        $display("        --                        --  |^ ^ ^ ^ |w| ");
+        $display("        ----------------------------   \\m___m__|_|");
+end endtask
 
 endmodule

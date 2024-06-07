@@ -1,5 +1,5 @@
 # TOOL INPUT
-SRC = DFF.v
+SRC = HA.v
 TESTBENCH = TESTBED.v
 COUTPUT = compiler.out
 TBOUTPUT = test.vcd

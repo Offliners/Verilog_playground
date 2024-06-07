@@ -14,18 +14,18 @@ initial begin
     $dumpvars(0, TESTBED);
 end
 
-DFF DUT_dff(
+DFF DUT_DFF(
     .clk(clk),
     .rst_n(rst_n),
     .D(D),
     .Q(Q)
-)
+);
 
 PATTERN I_PATTERN(
     .clk(clk),
     .rst_n(rst_n),
     .D(D),
     .Q(Q)
-)
+);
 
 endmodule
