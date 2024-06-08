@@ -25,8 +25,9 @@ initial begin
 
     repeat(100) begin
         input_data;
+        $display("D = %d, Q = %d, rst_n = %d", D, Q, rst_n);
         if(clk == 1 && rst_n == 1 && Q != D) display_fail;
-        if(rst_n == 0 && Q != 0) display_fail;
+        if(rst_n == 0 && Q != 0)             display_fail;
     end
 
     display_pass;
@@ -43,10 +44,6 @@ task input_data; begin
     D = $random; rst_n = $random;
     #10;
 end endtask
-
-initial begin
-    $monitor("D = %d, Q = %d, rst_n = %d", D, Q, rst_n);
-end
 
 task display_pass; begin
         $display("\033[0;32m        ----------------------------               \033[m");
