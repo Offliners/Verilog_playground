@@ -1,36 +1,52 @@
+`define CYCLE_TIME 10
+
 module PATTERN(
     // Input ports
-    a,
-    b,
+    clk,
+    rst_n,
+    D,
     // Output ports
-    sum,
-    carry
+    Q
 );
 
-output reg a;
-output reg b;
+output reg clk;
+output reg rst_n;
+output reg D;
 
-input sum;
-input carry;
+input Q;
 
-reg golden_sum;
-reg golden_carry;
+real CYCLE = `CYCLE_TIME;
+always #(CYCLE / 2.0) clk = ~clk;
 
 initial begin
+    rst_n = 1'b1;
+    force clk = 1'b0;
+    reset_task;
+
     repeat(100) begin
         input_data;
-        if(golden_carry != carry || golden_sum != sum) display_fail;
+        if(clk == 1 && rst_n == 1 && Q != D) display_fail;
+        if(rst_n == 0 && Q != 0) display_fail;
     end
 
     display_pass;
     $finish;
 end
 
-task input_data; begin
-    a = $random; 
-    b = $random;
-    {golden_carry, golden_sum} = a + b;
+task reset_task; begin
+    #(0.5) rst_n = 0;
+	#(3)   rst_n = 1;
+    #(3)   release clk;
 end endtask
+
+task input_data; begin
+    D = $random; rst_n = $random;
+    #10;
+end endtask
+
+initial begin
+    $monitor("D = %d, Q = %d, rst_n = %d", D, Q, rst_n);
+end
 
 task display_pass; begin
         $display("\033[0;32m        ----------------------------               \033[m");
@@ -50,7 +66,7 @@ task display_fail; begin
         $display("\033[0;31m        --  Simulation FAIL!!     --   /^ ^ ^ \\  |\033[m");
         $display("\033[0;31m        --                        --  |^ ^ ^ ^ |w| \033[m");
         $display("\033[0;31m        ----------------------------   \\m___m__|_|\033[m");
-        $finish;
+        //$finish;
 end endtask
 
 endmodule
