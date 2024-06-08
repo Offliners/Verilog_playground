@@ -1,5 +1,5 @@
 /* Half Adder */
-module HA (
+module HA(
     // Input signals
     a,
     b,

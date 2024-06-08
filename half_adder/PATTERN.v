@@ -1,3 +1,5 @@
+`define CYCLE_TIME 10.0
+
 module PATTERN(
     // Input ports
     a,
@@ -16,9 +18,17 @@ input carry;
 reg golden_sum;
 reg golden_carry;
 
+reg clk;
+real CYCLE = `CYCLE_TIME;
+always #(CYCLE/2.0) clk = ~clk;
+
 initial begin
+    force clk = 1'b0;
+    reset_task;
+
     repeat(100) begin
         input_data;
+        $display("A = %d, B = %d, carry = %d, sum = %d", a, b, carry, sum);
         if(golden_carry != carry || golden_sum != sum) display_fail;
     end
 
@@ -26,10 +36,15 @@ initial begin
     $finish;
 end
 
+task reset_task; begin
+    #(3)   release clk;
+end endtask
+
 task input_data; begin
     a = $random; 
     b = $random;
     {golden_carry, golden_sum} = a + b;
+    #1;
 end endtask
 
 task display_pass; begin
