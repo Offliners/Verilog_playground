@@ -4,6 +4,7 @@ module PATTERN(
     // Input ports
     a,
     b,
+    cin,
     // Output ports
     sum,
     carry
@@ -11,6 +12,7 @@ module PATTERN(
 
 output reg a;
 output reg b;
+output reg cin;
 
 input sum;
 input carry;
@@ -28,7 +30,7 @@ initial begin
 
     repeat(100) begin
         input_data;
-        $display("a = %d, b = %d, carry = %d, sum = %d", a, b, carry, sum);
+        $display("a = %d, b = %d, cin = %d, carry = %d, sum = %d", a, b, cin, carry, sum);
         if(golden_carry != carry || golden_sum != sum) begin
             $display("(carry, sum) should be : (%d, %d), your answer is : (%d, %d)", golden_carry, golden_sum, carry, sum);
             display_fail;
@@ -44,9 +46,10 @@ task reset_task; begin
 end endtask
 
 task input_data; begin
-    a = $random; 
-    b = $random;
-    {golden_carry, golden_sum} = a + b;
+    a   = $random; 
+    b   = $random;
+    cin = $random;
+    {golden_carry, golden_sum} = a + b + cin;
     #1;
 end endtask
 

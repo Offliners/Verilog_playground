@@ -1,11 +1,12 @@
 # Verilog Playground
 * D Flip Flop
 * Half Adder
+* Full Adder
 ## Usage
 ```shell
-$ iverilog -o outputfile readtestxxx.v testbench.v
-$ vvp outputfile
-$ gtkwave test.cvd &
+$ make check     # compiles your verilog design - good for checking code
+$ make simulate  # compiles your design and testbench & simulates your design
+$ make display   # compiles, simulates and displays waveforms
 ```
 
 ## Requirements
