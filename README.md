@@ -1,7 +1,9 @@
 # Verilog Playground
-* D Flip Flop
 * Half Adder
-* Full Adder
+* Full Adder (1 bit)
+* Full Adder (4 bits)
+* D Flip Flop
+
 ## Usage
 ```shell
 $ make check     # compiles your verilog design - good for checking code

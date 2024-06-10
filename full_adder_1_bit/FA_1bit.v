@@ -1,5 +1,5 @@
-/* Full Adder */
-module FA(
+/* Full Adder (1 bit) */
+module FA_1bit(
     // Input signals
     a,
     b,

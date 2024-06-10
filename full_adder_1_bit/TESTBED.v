@@ -1,6 +1,6 @@
 `timescale 1ns/10ps
 `include "PATTERN.v"
-`include "FA.v"
+`include "FA_1bit.v"
 
 module TESTBED();
 
@@ -15,7 +15,7 @@ initial begin
     $dumpvars(0, TESTBED);
 end
 
-FA DUT_FA(
+FA_1bit DUT_FA_1bit(
     .a(a),
     .b(b),
     .cin(cin),
