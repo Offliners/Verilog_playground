@@ -1,7 +1,8 @@
 # Verilog Playground
 * Half Adder
-* Full Adder (1 bit)
-* Full Adder (4 bits)
+* Full Adder
+    * Full Adder (1 bit)
+    * Full Adder (4 bits)
 * Binary to Gray Code Converter
 * D Flip Flop
 
