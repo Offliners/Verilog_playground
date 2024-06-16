@@ -6,6 +6,8 @@
 * Binary to Gray Code Converter
 * Flip Flop
     * D flip flop with asynchronous reset
+* Multiplexer
+    * Multiplexer 4x1
 
 ## Usage
 ```shell
