@@ -1,10 +1,11 @@
 # Verilog Playground
 * Half Adder
 * Full Adder
-    * Full Adder (1 bit)
-    * Full Adder (4 bits)
+    * Full adder (1 bit)
+    * Full adder (4 bits)
 * Binary to Gray Code Converter
-* D Flip Flop
+* Flip Flop
+    * D flip flop with asynchronous reset
 
 ## Usage
 ```shell

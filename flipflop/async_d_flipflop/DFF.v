@@ -1,4 +1,4 @@
-/* D Flip Flop */
+/* D flip flop with asynchronous reset */
 module DFF(
     // Input signals
     clk,
