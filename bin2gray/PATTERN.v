@@ -13,15 +13,20 @@ input [WIDTH-1:0] gray_out;
 
 reg [WIDTH-1:0] golden_gray;
 
+integer PATNUM = 10000;
+integer i;
+integer seed = 0;
+
 reg clk;
 real CYCLE = `CYCLE_TIME;
 always #(CYCLE/2.0) clk = ~clk;
 
 initial begin
+    i = $random(seed);
     force clk = 1'b0;
     reset_task;
 
-    repeat(10000) begin
+    repeat(PATNUM) begin
         input_data;
         $display("binary = %b, gray code = %b", bin_in, gray_out);
         if(golden_gray != gray_out) begin

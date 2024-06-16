@@ -13,17 +13,22 @@ output reg clk;
 output reg rst_n;
 output reg D;
 
+integer PATNUM = 100;
+integer i;
+integer seed = 0;
+
 input Q;
 
 real CYCLE = `CYCLE_TIME;
 always #(CYCLE / 2.0) clk = ~clk;
 
 initial begin
+    i = $random(seed);
     rst_n = 1'b1;
     force clk = 1'b0;
     reset_task;
 
-    repeat(100) begin
+    repeat(PATNUM) begin
         input_data;
         $display("D = %d, Q = %d, rst_n = %d", D, Q, rst_n);
         if(clk == 1 && rst_n == 1 && Q != D) display_fail;

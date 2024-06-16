@@ -20,15 +20,20 @@ input carry;
 reg golden_sum;
 reg golden_carry;
 
+integer PATNUM = 100;
+integer i;
+integer seed = 0;
+
 reg clk;
 real CYCLE = `CYCLE_TIME;
 always #(CYCLE/2.0) clk = ~clk;
 
 initial begin
+    i = $random(seed);
     force clk = 1'b0;
     reset_task;
 
-    repeat(100) begin
+    repeat(PATNUM) begin
         input_data;
         $display("a = %d, b = %d, cin = %d, carry = %d, sum = %d", a, b, cin, carry, sum);
         if(golden_carry != carry || golden_sum != sum) begin
