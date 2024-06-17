@@ -8,6 +8,7 @@
     * D flip flop with asynchronous reset
 * Multiplexer
     * Multiplexer 4x1
+* Comparator
 
 ## Usage
 ```shell
