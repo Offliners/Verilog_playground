@@ -1,4 +1,4 @@
-/* Full Adder (1 bit) */
+/* 1-bit Full Adder */
 module FA_1bit(
     // Input signals
     a,
