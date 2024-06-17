@@ -29,7 +29,7 @@ initial begin
     repeat(PATNUM) begin
         input_data;
         $display("binary = %b, gray code = %b", bin_in, gray_out);
-        if(golden_gray != gray_out) begin
+        if(golden_gray !== gray_out) begin
             $display("gray code should be : %b, your answer is : %b", gray_out, golden_gray);
             display_fail;
         end

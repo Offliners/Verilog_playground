@@ -36,7 +36,7 @@ initial begin
     repeat(PATNUM) begin
         input_data;
         $display("a = %d, b = %d, cin = %d, carry = %d, sum = %d, result = %d", a, b, cin, carry, sum, {carry, sum});
-        if(golden_carry != carry || golden_sum != sum) begin
+        if(golden_carry !== carry || golden_sum !== sum) begin
             $display("(carry, sum) should be : (%d, %d), your answer is : (%d, %d)", golden_carry, golden_sum, carry, sum);
             display_fail;
         end

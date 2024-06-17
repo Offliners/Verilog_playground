@@ -32,7 +32,7 @@ initial begin
     repeat(PATNUM) begin
         input_data;
         $display("in0 = %d, in1 = %d, in2 = %d, in3 = %d, select = %d, out = %d", in0, in1, in2, in3, select, out);
-        if(golden_out != out) begin
+        if(golden_out !== out) begin
             $display("out should be : %d, your answer is : %d", golden_out, out);
             display_fail;
         end
