@@ -1,7 +1,7 @@
 # Verilog Playground
 * Half Adder
 * Full Adder
-    * 1-bit Full adder
+    * 1-bit full adder
     * 4-bit full adder (ripple carry adder)
     * 4-bit full Adder (carry lookahead adder)
 * Binary to Gray Code Converter
