@@ -1,4 +1,4 @@
-/* Full Adder (4 bits) */
+/* 4-bit Full Adder (Ripple Carry Adder) */
 `include "FA_1bit.v"
 
 module FA_4bits(

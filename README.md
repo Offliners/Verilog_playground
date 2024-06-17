@@ -2,7 +2,7 @@
 * Half Adder
 * Full Adder
     * Full adder (1 bit)
-    * Full adder (4 bits)
+    * 4-bit full adder (ripple carry adder)
 * Binary to Gray Code Converter
 * Flip Flop
     * D flip flop with asynchronous reset
