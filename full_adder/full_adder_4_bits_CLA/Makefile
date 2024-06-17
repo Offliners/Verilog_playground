@@ -1,5 +1,5 @@
 # TOOL INPUT
-SRC = FA_4bits_RCA.v
+SRC = FA_4bits_CLA.v
 TESTBENCH = TESTBED.v
 COUTPUT = compiler.out
 TBOUTPUT = test.vcd

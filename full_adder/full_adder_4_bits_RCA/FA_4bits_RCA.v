@@ -1,7 +1,7 @@
 /* 4-bit Full Adder (Ripple Carry Adder) */
 `include "FA_1bit.v"
 
-module FA_4bits(
+module FA_4bits_RCA(
     // Input signals
     a,
     b,

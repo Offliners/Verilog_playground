@@ -1,6 +1,6 @@
 `timescale 1ns/10ps
 `include "PATTERN.v"
-`include "FA_4bits_RCA.v"
+`include "FA_4bits_CLA.v"
 
 module TESTBED();
 
@@ -15,7 +15,7 @@ initial begin
     $dumpvars(0, TESTBED);
 end
 
-FA_4bits_RCA DUT_FA_4bits_RCA(
+FA_4bits DUT_FA_4bits(
     .a(a),
     .b(b),
     .cin(cin),

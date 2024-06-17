@@ -3,6 +3,7 @@
 * Full Adder
     * Full adder (1 bit)
     * 4-bit full adder (ripple carry adder)
+    * 4-bit full Adder (carry lookahead adder)
 * Binary to Gray Code Converter
 * Flip Flop
     * D flip flop with asynchronous reset
