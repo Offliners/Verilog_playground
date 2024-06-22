@@ -10,6 +10,7 @@
 * Multiplexer
     * Multiplexer 4x1
 * Comparator
+* Bit reverse
 
 ## Usage
 ```shell
