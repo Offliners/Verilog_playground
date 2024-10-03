@@ -18,6 +18,23 @@
 ```shell
 $ make check     # compiles your verilog design - good for checking code
 $ make simulate  # compiles your design and testbench & simulates your design
+# PASS
+        ----------------------------
+        --                        --       |\__|\
+        --  Congratulations !!    --      / O.O  |
+        --                        --    /_____   |
+        --  Simulation PASS!!     --   /^ ^ ^ \  |
+        --                        --  |^ ^ ^ ^ |w|
+        ----------------------------   \m___m__|_|
+# FAIL
+        ----------------------------
+        --                        --       |__||
+        --  OOPS!!                --      / X,X  |
+        --                        --    /_____   |
+        --  Simulation FAIL!!     --   /^ ^ ^ \  |
+        --                        --  |^ ^ ^ ^ |w|
+        ----------------------------   \m___m__|_|
+
 $ make display   # compiles, simulates and displays waveforms
 ```
 

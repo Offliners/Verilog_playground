@@ -52,7 +52,7 @@ end endtask
 
 task display_pass; begin
         $display("\033[0;32m        ----------------------------               \033[m");
-        $display("\033[0;32m        --                        --       |\__||  \033[m");
+        $display("\033[0;32m        --                        --       |\\__|\\\033[m");
         $display("\033[0;32m        --  Congratulations !!    --      / O.O  | \033[m");
         $display("\033[0;32m        --                        --    /_____   | \033[m");
         $display("\033[0;32m        --  Simulation PASS!!     --   /^ ^ ^ \\  |\033[m");
@@ -62,13 +62,13 @@ end endtask
 
 task display_fail; begin
         $display("\033[0;31m        ----------------------------               \033[m");
-        $display("\033[0;31m        --                        --       |\__||  \033[m");
+        $display("\033[0;31m        --                        --       |\\__|\\\033[m");
         $display("\033[0;31m        --  OOPS!!                --      / X,X  | \033[m");
         $display("\033[0;31m        --                        --    /_____   | \033[m");
         $display("\033[0;31m        --  Simulation FAIL!!     --   /^ ^ ^ \\  |\033[m");
         $display("\033[0;31m        --                        --  |^ ^ ^ ^ |w| \033[m");
         $display("\033[0;31m        ----------------------------   \\m___m__|_|\033[m");
-        //$finish;
+        $finish;
 end endtask
 
 endmodule
