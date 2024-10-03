@@ -1,4 +1,4 @@
-/* 4-bit up counter */
+/* 4-bit down counter */
 module DOWN_COUNTER_4bit(
     // Input signals
     clk,
