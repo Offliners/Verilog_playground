@@ -14,6 +14,7 @@
 * Counter
     * [4-bit up counter](./counter/up_counter_4_bit/)
     * [4-bit down counter](./counter/down_counter_4_bit/)
+    * [4-bit up-down counter](./counter/updown_counter_4_bit/)
 
 ## Usage
 ```shell

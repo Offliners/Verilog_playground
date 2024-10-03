@@ -10,7 +10,6 @@ module PATTERN(
 
 output reg clk;
 output reg rst_n;
-output reg D;
 
 integer PATNUM = 100;
 integer i;

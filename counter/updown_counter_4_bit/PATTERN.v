@@ -4,12 +4,14 @@ module PATTERN(
     // Input ports
     clk,
     rst_n,
+    ctrl,
     // Output ports
     cnt
 );
 
 output reg clk;
 output reg rst_n;
+output reg ctrl;
 
 integer PATNUM = 100;
 integer i;
@@ -30,9 +32,9 @@ initial begin
 
     repeat(PATNUM) begin
         input_data;
-        $display("cnt = %d, golden_cnt = %d, rst_n = %d", cnt, golden_cnt, rst_n);
+        $display("cnt = %d, golden_cnt = %d, ctrl = %d, rst_n = %d", cnt, golden_cnt, ctrl, rst_n);
         if(rst_n === 1 && cnt !== golden_cnt) display_fail;
-        if(rst_n === 0 && cnt !== 0)             display_fail;
+        if(rst_n === 0 && cnt !== 0)          display_fail;
     end
 
     display_pass;
@@ -48,10 +50,13 @@ end endtask
 
 task input_data; begin
     rst_n = $random;
-    if(rst_n)
-        golden_cnt = golden_cnt - 1;
-    else
+    ctrl  = $random;
+    if(!rst_n)
         golden_cnt = 0;
+    else if(ctrl)
+        golden_cnt = golden_cnt + 1;
+    else
+        golden_cnt = golden_cnt - 1;
     #10;
 end endtask
 
