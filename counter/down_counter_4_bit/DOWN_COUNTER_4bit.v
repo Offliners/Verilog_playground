@@ -1,24 +1,22 @@
-/* D flip flop with asynchronous reset */
-module DFF(
+/* 4-bit up counter */
+module DOWN_COUNTER_4bit(
     // Input signals
     clk,
     rst_n,
-    D,
     // Output signals
-    Q
+    cnt
 );
 
 input clk;
 input rst_n;
-input D;
 
-output reg Q;
+output reg [3:0] cnt;
 
 always @ (posedge clk or negedge rst_n) begin
     if(!rst_n)
-        Q <= 0;
+        cnt <= 0;
     else
-        Q <= D;
+        cnt <= cnt - 1;
 end
 
 endmodule

@@ -13,6 +13,7 @@
 * [Bit reverse](./bit_reverse/)
 * Counter
     * [4-bit up counter](./counter/up_counter_4_bit/)
+    * [4-bit down counter](./counter/down_counter_4_bit/)
 
 ## Usage
 ```shell
@@ -28,7 +29,7 @@ $ make simulate  # compiles your design and testbench & simulates your design
         ----------------------------   \m___m__|_|
 # FAIL
         ----------------------------
-        --                        --       |__||
+        --                        --       |\__|\
         --  OOPS!!                --      / X,X  |
         --                        --    /_____   |
         --  Simulation FAIL!!     --   /^ ^ ^ \  |
