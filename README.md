@@ -15,9 +15,9 @@
 * Bit Manipulation
     * [Bit reverse](./bit_manipulation/bit_reverse/)
 * Counter
-    * [4-bit up counter](./counter/up_counter_4_bit/)
-    * [4-bit down counter](./counter/down_counter_4_bit/)
-    * [4-bit up-down counter](./counter/updown_counter_4_bit/)
+    * [Up counter](./counter/up_counter/)
+    * [Down counter](./counter/down_counter/)
+    * [Up-down counter](./counter/updown_counter/)
 
 ## Usage
 ```shell
