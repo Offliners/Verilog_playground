@@ -1,6 +1,6 @@
 `define CYCLE_TIME 10
 
-module PATTERN(
+module PATTERN #(parameter WIDTH=32)(
     // Input ports
     clk,
     rst_n,
@@ -15,9 +15,9 @@ integer PATNUM = 100;
 integer i;
 integer seed = 0;
 
-input [3:0] cnt;
+input [WIDTH-1:0] cnt;
 
-reg [3:0] golden_cnt;
+reg [WIDTH-1:0] golden_cnt;
 
 real CYCLE = `CYCLE_TIME;
 always #(CYCLE / 2.0) clk = ~clk;
@@ -29,10 +29,17 @@ initial begin
     reset_task;
 
     repeat(PATNUM) begin
-        input_data;
+        input_data_without_rstn;
         $display("cnt = %d, golden_cnt = %d, rst_n = %d", cnt, golden_cnt, rst_n);
         if(rst_n === 1 && cnt !== golden_cnt) display_fail;
-        if(rst_n === 0 && cnt !== 0)             display_fail;
+        if(rst_n === 0 && cnt !== 0)          display_fail;
+    end
+
+    repeat(PATNUM) begin
+        input_data_with_random_rstn;
+        $display("cnt = %d, golden_cnt = %d, rst_n = %d", cnt, golden_cnt, rst_n);
+        if(rst_n === 1 && cnt !== golden_cnt) display_fail;
+        if(rst_n === 0 && cnt !== 0)          display_fail;
     end
 
     display_pass;
@@ -46,7 +53,15 @@ task reset_task; begin
            golden_cnt = 0;
 end endtask
 
-task input_data; begin
+task input_data_without_rstn; begin
+    if(rst_n)
+        golden_cnt = golden_cnt - 1;
+    else
+        golden_cnt = 0;
+    #10;
+end endtask
+
+task input_data_with_random_rstn; begin
     rst_n = $random;
     if(rst_n)
         golden_cnt = golden_cnt - 1;

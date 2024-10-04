@@ -1,19 +1,19 @@
 `timescale 1ns/10ps
 `include "PATTERN.v"
-`include "UP_COUNTER_4bit.v"
+`include "UP_COUNTER.v"
 
-module TESTBED();
+module TESTBED #(parameter WIDTH=32)();
 
 wire clk;
 wire rst_n;
-wire [3:0] cnt;
+wire [WIDTH-1:0] cnt;
 
 initial begin
     $dumpfile("test.vcd");
     $dumpvars(0, TESTBED);
 end
 
-UP_COUNTER_4bit UP_COUNTER_4bit_DFF(
+UP_COUNTER UP_COUNTER_DFF(
     .clk(clk),
     .rst_n(rst_n),
     .cnt(cnt)

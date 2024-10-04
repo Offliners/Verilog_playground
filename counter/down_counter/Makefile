@@ -1,5 +1,5 @@
 # TOOL INPUT
-SRC = DOWN_COUNTER_4bit.v
+SRC = DOWN_COUNTER.v
 TESTBENCH = TESTBED.v
 COUTPUT = compiler.out
 TBOUTPUT = test.vcd

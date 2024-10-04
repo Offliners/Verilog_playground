@@ -1,6 +1,6 @@
 `define CYCLE_TIME 10
 
-module PATTERN(
+module PATTERN #(parameter WIDTH=32)(
     // Input ports
     clk,
     rst_n,
@@ -17,9 +17,9 @@ integer PATNUM = 100;
 integer i;
 integer seed = 0;
 
-input [3:0] cnt;
+input [WIDTH-1:0] cnt;
 
-reg [3:0] golden_cnt;
+reg [WIDTH-1:0] golden_cnt;
 
 real CYCLE = `CYCLE_TIME;
 always #(CYCLE / 2.0) clk = ~clk;
