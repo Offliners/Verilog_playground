@@ -1,16 +1,19 @@
 # Verilog Playground
-* [Half Adder](./half_adder/)
-* Full Adder
-    * [1-bit full adder](./full_adder/full_adder_1_bit/)
-    * [4-bit full adder (ripple carry adder)](./full_adder/full_adder_4_bits_RCA/)
-    * [4-bit full adder (carry lookahead adder)](./full_adder/full_adder_4_bits_CLA/)
-* [Binary to Gray Code Converter](./bin2gray/)
+* Adder
+    * [Half adder](./adder/half_adder/)
+    * [1-bit full adder](./adder/full_adder_1_bit/)
+    * [4-bit full adder (ripple carry adder)](./adder/full_adder_4_bits_RCA/)
+    * [4-bit full adder (carry lookahead adder)](./adder/full_adder_4_bits_CLA/)
+* Converter
+    * [Binary to Gray Code Converter](./converter/bin2gray/)
 * Flip Flop
     * [D flip flop with asynchronous reset](./flipflop/async_d_flipflop/)
 * Multiplexer
     * [Multiplexer 4x1](./multiplexer/mux_4x1/)
-* [Comparator](./comparator/)
-* [Bit reverse](./bit_reverse/)
+* Comparator
+    * [Comparator](./comparator/comparator/)
+* Bit Manipulation
+    * [Bit reverse](./bit_manipulation/bit_reverse/)
 * Counter
     * [4-bit up counter](./counter/up_counter_4_bit/)
     * [4-bit down counter](./counter/down_counter_4_bit/)
