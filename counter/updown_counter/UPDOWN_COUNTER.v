@@ -1,4 +1,4 @@
-/* 4-bit up-down counter */
+/* Up-down counter */
 module UPDOWN_COUNTER #(parameter WIDTH=32)(
     // Input signals
     clk,
